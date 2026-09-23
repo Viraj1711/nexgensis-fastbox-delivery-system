@@ -23,6 +23,9 @@ python main.py test_case_1.json --output output/report.json \
   --top-performer-csv output/top_performer.csv
 ```
 
+The committed `report.json` was generated from `base_case (2).json` using the
+default deterministic simulation rules documented below.
+
 Run the automated test suite with:
 
 ```bash

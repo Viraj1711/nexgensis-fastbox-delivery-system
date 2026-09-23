@@ -6,8 +6,7 @@ __pycache__/
 .venv/
 venv/
 
-# Generated runtime outputs
-report.json
+# Optional generated runtime outputs
 top_performer.csv
 output/
 Python Assignment(Delivery System) (2).pdf
