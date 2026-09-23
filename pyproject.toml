@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastbox-delivery-system"
+version = "1.0.0"
+description = "Deterministic delivery simulator for the Nexgensis Python assignment"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+fastbox = "main:main"
+
+[tool.setuptools]
+packages = ["delivery_system"]
+py-modules = ["main"]

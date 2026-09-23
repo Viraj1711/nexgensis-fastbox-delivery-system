@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.coverage
+.pytest_cache/
+.venv/
+venv/
+
+# Generated runtime outputs
+report.json
+top_performer.csv
+output/
+Python Assignment(Delivery System) (2).pdf
