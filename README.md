@@ -12,18 +12,18 @@ The production application uses only the Python standard library.
 Python 3.10 or newer is required.
 
 ```bash
-python main.py test_case_1.json
+python main.py
 ```
 
 The default output is `report.json`. Custom output and the optional top
 performer CSV export are supported:
 
 ```bash
-python main.py test_case_1.json --output output/report.json \
+python main.py data/test_cases/test_case_1.json --output output/report.json \
   --top-performer-csv output/top_performer.csv
 ```
 
-The committed `report.json` was generated from `base_case (2).json` using the
+The committed `report.json` was generated from `data/base_case.json` using the
 default deterministic simulation rules documented below.
 
 Run the automated test suite with:
@@ -57,7 +57,7 @@ value is better.
 
 The supplied files contain two different schemas. Both are accepted.
 
-Dictionary format used by `test_case_*.json`:
+Dictionary format used by `data/test_cases/test_case_*.json`:
 
 ```json
 {
@@ -69,7 +69,7 @@ Dictionary format used by `test_case_*.json`:
 }
 ```
 
-List format used by `base_case (2).json`:
+List format used by `data/base_case.json`:
 
 ```json
 {
@@ -117,13 +117,22 @@ unknown warehouse, and packages supplied without an agent.
 ## Project structure
 
 ```text
-main.py                       Command-line interface
-delivery_system/models.py     Immutable domain models
-delivery_system/parser.py     Dual-schema normalization and validation
-delivery_system/assignment.py Euclidean assignment logic
-delivery_system/simulation.py Stateful route simulation
-delivery_system/reporting.py  JSON report and optional CSV export
-tests/                        Unit and integration tests
+.
+|-- .github/workflows/tests.yml  Continuous integration
+|-- data/
+|   |-- base_case.json           Base input used for report.json
+|   `-- test_cases/              Ten supplied input fixtures
+|-- delivery_system/
+|   |-- models.py                Immutable domain models
+|   |-- parser.py                Normalization and validation
+|   |-- assignment.py            Euclidean assignment logic
+|   |-- simulation.py            Stateful route simulation
+|   `-- reporting.py             JSON and CSV report generation
+|-- tests/                       Unit and integration tests
+|-- main.py                      Command-line interface
+|-- pyproject.toml               Package metadata
+|-- report.json                  Required base-case output
+`-- README.md                    Usage and engineering decisions
 ```
 
 ## Complexity

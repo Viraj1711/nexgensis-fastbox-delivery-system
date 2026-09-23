@@ -30,7 +30,7 @@ class SimulationTests(unittest.TestCase):
         self.assertEqual(results["A1"].deliveries[1].start, (0.0, 4.0))
 
     def test_base_case_distances(self) -> None:
-        data = load_input(ROOT / "base_case (2).json")
+        data = load_input(ROOT / "data" / "base_case.json")
         results = simulate_day(data, assign_packages(data))
         self.assertTrue(math.isclose(results["A1"].total_distance, 121.2132034356))
         self.assertTrue(math.isclose(results["A2"].total_distance, 79.2080962648))

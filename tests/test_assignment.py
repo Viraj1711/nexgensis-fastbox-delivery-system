@@ -15,7 +15,7 @@ class AssignmentTests(unittest.TestCase):
         self.assertEqual(euclidean_distance((0.0, 0.0), (3.0, 4.0)), 5.0)
 
     def test_base_case_assignments(self) -> None:
-        data = load_input(ROOT / "base_case (2).json")
+        data = load_input(ROOT / "data" / "base_case.json")
         assignments = assign_packages(data)
         actual = {
             agent_id: [package.id for package in packages]

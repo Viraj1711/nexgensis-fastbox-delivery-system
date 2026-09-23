@@ -12,9 +12,12 @@ from main import main
 
 
 ROOT = Path(__file__).resolve().parents[1]
-FIXTURES = [ROOT / "base_case (2).json", *sorted(ROOT.glob("test_case_*.json"))]
+FIXTURES = [
+    ROOT / "data" / "base_case.json",
+    *sorted((ROOT / "data" / "test_cases").glob("test_case_*.json")),
+]
 EXPECTED_ASSIGNMENT_COUNTS = {
-    "base_case (2).json": {"A1": 2, "A2": 2, "A3": 1},
+    "base_case.json": {"A1": 2, "A2": 2, "A3": 1},
     "test_case_1.json": {"A1": 4, "A2": 1, "A3": 7, "A4": 0},
     "test_case_2.json": {"A1": 10, "A2": 0, "A3": 0},
     "test_case_3.json": {"A1": 0, "A2": 2, "A3": 3, "A4": 1},
@@ -62,7 +65,7 @@ class IntegrationTests(unittest.TestCase):
         try:
             exit_code = main(
                 [
-                    str(ROOT / "test_case_1.json"),
+                    str(ROOT / "data" / "test_cases" / "test_case_1.json"),
                     "--output",
                     str(report_path),
                     "--top-performer-csv",

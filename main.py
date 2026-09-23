@@ -24,8 +24,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "input",
         nargs="?",
-        default="data.json",
-        help="Input JSON path (default: data.json)",
+        default="data/base_case.json",
+        help="Input JSON path (default: data/base_case.json)",
     )
     parser.add_argument(
         "-o",

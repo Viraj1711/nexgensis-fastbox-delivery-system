@@ -11,12 +11,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class ParserTests(unittest.TestCase):
     def test_loads_list_schema(self) -> None:
-        data = load_input(ROOT / "base_case (2).json")
+        data = load_input(ROOT / "data" / "base_case.json")
         self.assertEqual([item.id for item in data.warehouses], ["W1", "W2", "W3"])
         self.assertEqual(data.packages[0].warehouse_id, "W1")
 
     def test_loads_mapping_schema(self) -> None:
-        data = load_input(ROOT / "test_case_1.json")
+        data = load_input(ROOT / "data" / "test_cases" / "test_case_1.json")
         self.assertEqual(len(data.warehouses), 5)
         self.assertEqual(data.packages[0].warehouse_id, "W5")
 
